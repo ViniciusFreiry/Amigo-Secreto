@@ -6,9 +6,18 @@ function adicionar() {
     // Adicionando Pessoa na Lista
     const amigo = document.getElementById("nome-amigo");
 
-    if (amigo.value == "") return 0;
+    // Validação de Input Vazio
+    if (amigo.value == "") {
+        alert("Insira um nome!");
+        return;
+    }
 
-    amigos.push(amigo.value);
+    // Validação de Nome Repetido
+    if (amigos.includes(amigo.value)) {
+        alert("O nome já está na lista!");
+        amigo.value = "";
+        return;
+    } else amigos.push(amigo.value);
 
     if (listaAmigos.innerHTML == "") {
         listaAmigos.innerHTML = amigo.value;
@@ -20,6 +29,12 @@ function adicionar() {
 }
 
 function sortear() {
+    // Validação de Quantidade Mínima
+    if (amigos.length < 3) {
+        alert("Adicione pelo menos 3 nomes!")
+        return;
+    }
+
     // Embaralhando a Lista de Amigos
     embaralhaLista(amigos);
 
