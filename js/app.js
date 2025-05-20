@@ -5,6 +5,9 @@ let amigos = [];
 function adicionar() {
     // Adicionando Pessoa na Lista
     const amigo = document.getElementById("nome-amigo");
+
+    if (amigo.value == "") return 0;
+
     amigos.push(amigo.value);
 
     if (listaAmigos.innerHTML == "") {
@@ -37,5 +40,7 @@ function embaralhaLista(lista) {
 }
 
 function reiniciar() {
-
+    amigos = [];
+    sorteio.innerHTML = "";
+    listaAmigos.innerHTML = "";
 }
