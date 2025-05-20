@@ -1,4 +1,5 @@
 const listaAmigos = document.getElementById("lista-amigos");
+const sorteio = document.getElementById("lista-sorteio");
 let amigos = [];
 
 function adicionar() {
@@ -18,6 +19,13 @@ function adicionar() {
 function sortear() {
     // Embaralhando a Lista de Amigos
     embaralhaLista(amigos);
+
+    // Resultado do Sorteio
+    sorteio.innerHTML = "";
+
+    for (let i = 0; i < amigos.length; i++) {
+        sorteio.innerHTML += amigos[i] + " --> " + amigos[(i + 1 == amigos.length ? 0 : i + 1)] + "<br>";
+    }
 }
 
 function embaralhaLista(lista) {
